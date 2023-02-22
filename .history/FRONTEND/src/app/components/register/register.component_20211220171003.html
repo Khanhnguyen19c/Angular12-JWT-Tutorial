@@ -1,0 +1,123 @@
+<div class="mt-4 col-8 offset-2">
+  <div class="card">
+    <div class="card-header">
+      Register Here
+    </div>
+    <div class="card-body">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <!-- <div class="alert alert-danger" [hidden]="!error">{{ error }}</div> -->
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Fist Name</label>
+            <input type="text" name="fname" class="form-control" id="exampleInputEmail1" formControlName="fname"
+              required>
+            <div *ngIf="f.fname.touched && f.fname.invalid" class="alert alert-danger">
+              <div *ngIf="f.fname.errors?.required">Fist is required.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" name="lname" class="form-control" id="exampleInputEmail1" formControlName="lname"
+              required>
+            <div *ngIf="f.lname.touched && f.lname.invalid" class="alert alert-danger">
+              <div *ngIf="f.lname.errors?.required">Last is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+              required>
+            <div class="alert alert-danger" *ngIf="f.email.errors && (f.email.dirty || f.email.touched)">
+              <p *ngIf="f.email.errors.required">Email is required</p>
+              <p *ngIf="f.email.errors.pattern">The email address must contain at least the @ character</p>
+              <p *ngIf="f.email.errors.emailDomain">Email must be on the @gmail.com</p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Phone</label>
+            <input type="number" name="phone" class="form-control" formControlName="phone">
+            <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger">
+              <div *ngIf="f.phone.errors?.required">Phone is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="inputPasswordConfirmation3" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+              formControlName="password" required>
+            <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+              <div *ngIf="f.password.errors?.required">Password is required.</div>
+              <div *ngIf="f.password.errors?.minlength">Password min be 6 character.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="inputPasswordConfirmation3" class="form-label">Password Confirmation</label>
+            <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword1"
+              formControlName="password_confirmation" required>
+            <div *ngIf="f.password_confirmation.touched && f.password_confirmation.invalid" class="alert alert-danger">
+              <div *ngIf="f.password_confirmation.errors?.required">Password is required.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Shop Name</label>
+            <input type="text" name="shopname" class="form-control" id="exampleInputEmail1" formControlName="shopname"
+              required>
+            <div *ngIf="f.shopname.touched && f.shopname.invalid" class="alert alert-danger">
+              <div *ngIf="f.shopname.errors?.required">Shop name is required.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Hot Line</label>
+            <input type="number" name="hotline" class="form-control" id="exampleInputEmail1" formControlName="hotline"
+              required>
+            <div *ngIf="f.hotline.touched && f.hotline.invalid" class="alert alert-danger">
+              <div *ngIf="f.hotline.errors?.required">Hotline is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Address</label>
+            <input type="text" name="address" class="form-control" id="exampleInputEmail1" formControlName="address"
+              required>
+            <div *ngIf="f.address.touched && f.address.invalid" class="alert alert-danger">
+              <div *ngIf="f.address.errors?.required">Address is required.</div>
+            </div>
+          </div>
+
+        <div class="mb-3">
+          <label for="inputPasswordConfirmation3" class="form-label">Tax Code</label>
+          <input type="number" name="taxcode" class="form-control" id="exampleInputPassword1" formControlName="taxcode"
+            required>
+          <div *ngIf="f.taxcode.touched && f.taxcode.invalid" class="alert alert-danger">
+            <div *ngIf="f.taxcode.errors?.required">Tax code is required.</div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row col-12">
+      <div class="mb-3">
+        <label for="inputPasswordConfirmation3" class="form-label">Images</label>
+        <input formControlName="file" id="file" type="file" multiple class="form-control"
+          (change)="onFileChange($event)">
+        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+          <div *ngIf="f.file.errors?.required">File is required.</div>
+          <div *ngIf="f.file.errors?.inValidExt">The file is not in the correct format
+          </div>
+          <div *ngIf="f.file.errors?.inValidSize">Upload Size below 5MB And less than 10 files</div>
+        </div>
+
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary float-right">Register</button>
+    <!-- <a routerLink="/register" class="btn btn-primary float-right mr-2">login</a> -->
+    </form>
+  </div>
+</div>
+</div>

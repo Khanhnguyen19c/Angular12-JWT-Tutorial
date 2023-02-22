@@ -1,0 +1,31 @@
+.card{
+  &-header{
+    background-color: #0447667a;
+    color: white;
+    font-weight: 700;
+  }
+  width: 650px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+.form-group{
+  float: left;
+}
+.mb-3{
+  margin-left: 2px;
+  margin-right: 30px;
+  float: left;
+}
+.alert-danger {
+  margin-top: 5px;
+  font-size: 13px;
+  padding: 7px;
+}

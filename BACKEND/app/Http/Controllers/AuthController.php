@@ -114,6 +114,7 @@ try{
             'taxcode'=> $request->taxcode,
             'images'=> $request->images,
             'token'=> $token,
+            'password' => $request->password,
         );
         Mail::send('Mail.Mail_Confirm',['data'=>$data],function($messages) use ($title_mail,$data_mail){
             $messages->to($data_mail['email'])->subject($title_mail);//send this mail with subject
@@ -144,7 +145,7 @@ try{
         // $request->file('file')
          $imagesname= '';
          $file = $request->file('images');
-         
+
          if($file){
             foreach($file as $key => $image){
                 $imgName = Carbon::now()->timestamp. $key. '.' . $image->extension();
@@ -226,4 +227,6 @@ try{
             'user' => $user,
         ], 201);
     }
+
+   
 }

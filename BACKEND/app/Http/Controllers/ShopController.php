@@ -89,7 +89,7 @@ class ShopController extends Controller
         }
         return $new_images;
     }
-    /**
+     /**
      * Confirm Account Shop
      *
      * @return JSON
@@ -106,10 +106,10 @@ class ShopController extends Controller
                 $shop->status = 1;
                 $shop->save();
                 $check->delete();
+                return redirect()->to('http://127.0.0.1:4200/profile');
             }catch(ModelNotFoundException){
                 return $this->error;
             }
         }
-        return $this->success;
     }
 }
